@@ -80,7 +80,7 @@ class AGLoginViewController: AGViewController {
     @available(iOSApplicationExtension, unavailable)
     override func setBottomOffset(keyboardInfo: UIKeyboardInfo) {
         UIView.animate(withDuration: 0, delay: keyboardInfo.frame.height > 0 ? 0.3 : 0, options: UIView.AnimationOptions.curveEaseInOut) {
-            self.scrollView.contentSize = CGSize(width: self.scrollView.frame.width, height: self.scrollView.frame.height + keyboardInfo.frame.height)
+            self.scrollView.contentSize = CGSize(width: self.scrollView.frame.width, height: self.view.contentHeight + keyboardInfo.frame.height)
             let offset: CGPoint = CGPoint(x: 0, y: self.scrollView.contentSize.height / 7)
             self.scrollView.contentOffset = keyboardInfo.frame.height > 0 ? offset : CGPoint(x: 0, y: -self.view.safeAreaTopHeight)
         } completion: { _ in }
