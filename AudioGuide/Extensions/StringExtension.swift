@@ -7,6 +7,7 @@
 
 import Foundation
 import CryptoKit
+import UIKit
 
 extension String {
     
@@ -50,6 +51,18 @@ extension String {
 //            }
             return ""
         }
+    }
+    
+    func image() -> UIImage? {
+        let size = CGSize(width: 100, height: 100)
+        UIGraphicsBeginImageContextWithOptions(size, false, 0)
+        UIColor.clear.set()
+        let rect = CGRect(origin: CGPoint(), size: size)
+        UIRectFill(CGRect(origin: CGPoint(), size: size))
+        (self as NSString).draw(in: rect, withAttributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 10)])
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image
     }
     
     func slice(from: String, to: String) -> String? {

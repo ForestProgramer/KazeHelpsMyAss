@@ -19,10 +19,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let window = UIWindow(windowScene: windowScene)
         
+        UITextField.appearance().textColor = UIColor(named: "AccentColor")
+        UITabBar.appearance().barTintColor = UIColor(hexString: "#F8F8F8").withAlphaComponent(0.65)
+        
         if let isOnboard = UserDefaults.isOnboard, isOnboard, UserDefaults.userEmail == nil {
-            let viewController = storyboard.instantiateViewController(withIdentifier: "AGStartViewController")
+            //let viewController = storyboard.instantiateViewController(withIdentifier: "AGStartViewController")
+            let viewController = storyboard.instantiateViewController(withIdentifier: "AGMainTabBarController")
+            let navViewController = UINavigationController(rootViewController: viewController)
+            navViewController.isNavigationBarHidden = true
             //let viewController = storyboard.instantiateViewController(withIdentifier: "AGSubscriptionsViewController")
-            window.rootViewController = UINavigationController(rootViewController: viewController)
+            window.rootViewController = navViewController
             self.window = window
             window.makeKeyAndVisible()
         } else if UserDefaults.userEmail != nil {

@@ -28,6 +28,26 @@ extension NSObject {
     }
     
     @available(iOSApplicationExtension, unavailable)
+    var safeAreaTopHeight: CGFloat {
+        if #available(iOS 11.0, *) {
+            if let keyWindow = UIWindow.key {
+             return keyWindow.safeAreaInsets.top
+            }
+        }
+        return 0
+    }
+    
+    @available(iOSApplicationExtension, unavailable)
+    var safeAreaBottomHeight: CGFloat {
+        if #available(iOS 11.0, *) {
+            if let keyWindow = UIWindow.key {
+                return keyWindow.safeAreaInsets.bottom
+            }
+        }
+        return 0
+    }
+    
+    @available(iOSApplicationExtension, unavailable)
     func topViewController(rootViewController: UIViewController?) -> UIViewController? {
         guard let rootViewController = rootViewController else { return nil }
         if let controller = rootViewController as? UITabBarController {

@@ -46,6 +46,7 @@ class AGRegistrationViewController: AGViewController {
     @available(iOSApplicationExtension, unavailable)
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.scrollView.frame = self.view.frame
         self.mainView.frame = self.hasSafeArea ? self.scrollView.frame : CGRect(x: self.scrollView.frame.origin.x, y: self.scrollView.frame.origin.y, width: self.scrollView.frame.width, height:  self.view.contentHeight)
         self.scrollView.contentSize = CGSize(width: self.scrollView.frame.width, height: self.view.contentHeight)
         self.panelView.roundCorners(corners: [.layerMinXMinYCorner, .layerMaxXMinYCorner], radius: gCorrnerRadius)
@@ -96,6 +97,10 @@ class AGRegistrationViewController: AGViewController {
             self.showConfirmButton.isSelected = !self.showConfirmButton.isSelected
             self.confirmPasswordField.isSecureTextEntry = !self.showConfirmButton.isSelected
         }
+    }
+    
+    @IBAction private func registration() {
+        self.performSegue(withIdentifier: "showTabBarSeque", sender: self)
     }
     
     @IBAction private func goToLogin() {

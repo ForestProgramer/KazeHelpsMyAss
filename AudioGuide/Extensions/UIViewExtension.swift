@@ -55,26 +55,6 @@ extension UIView {
     }
     
     @available(iOSApplicationExtension, unavailable)
-    var safeAreaTopHeight: CGFloat {
-        if #available(iOS 11.0, *) {
-            if let keyWindow = UIWindow.key {
-             return keyWindow.safeAreaInsets.top
-            }
-        }
-        return bounds.height
-    }
-    
-    @available(iOSApplicationExtension, unavailable)
-    var safeAreaBottomHeight: CGFloat {
-        if #available(iOS 11.0, *) {
-            if let keyWindow = UIWindow.key {
-                return keyWindow.safeAreaInsets.bottom
-            }
-        }
-        return bounds.height
-    }
-    
-    @available(iOSApplicationExtension, unavailable)
     var contentHeight: CGFloat {
         guard #available(iOS 11.0, *), self.hasSafeArea else {
             return 812

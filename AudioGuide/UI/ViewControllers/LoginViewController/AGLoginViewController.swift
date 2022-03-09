@@ -34,11 +34,18 @@ class AGLoginViewController: AGViewController {
         Observable.combineLatest(self.emailField.rx.text.orEmpty, self.passwordField.rx.text.orEmpty) {email, password -> Bool in
             return email.count > 0 && password.count > 5 && email.isValidEmail()
         }.bind(to: self.loginButton.rx.isEnabled).disposed(by: self.disposeBag)
+//    #if DEBUG
+//        self.emailField.text = "ratel078@gmail.com"
+//        self.passwordField.text = "test12345"
+//        self.loginButton.isEnabled = true
+//    #endif
+        
     }
     
     @available(iOSApplicationExtension, unavailable)
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.scrollView.frame = self.view.frame
         self.mainView.frame = self.hasSafeArea ? self.scrollView.frame : CGRect(x: self.scrollView.frame.origin.x, y: self.scrollView.frame.origin.y, width: self.scrollView.frame.width, height:  self.view.contentHeight)
         self.scrollView.contentSize = CGSize(width: self.scrollView.frame.width, height: self.view.contentHeight)
         self.panelView.roundCorners(corners: [.layerMinXMinYCorner, .layerMaxXMinYCorner], radius: gCorrnerRadius)
@@ -90,6 +97,10 @@ class AGLoginViewController: AGViewController {
     @IBAction private func showPassword() {
         self.showButton.isSelected = !self.showButton.isSelected
         self.passwordField.isSecureTextEntry = !self.showButton.isSelected
+    }
+    
+    @IBAction private func login() {
+        self.performSegue(withIdentifier: "showTabBarSeque", sender: self)
     }
     
     @IBAction private func goToRegistaration() {

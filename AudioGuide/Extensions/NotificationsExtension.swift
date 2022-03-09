@@ -34,3 +34,8 @@ struct UIKeyboardWillHide: NoticeType {
     typealias InfoType = UIKeyboardInfo
     static let name: Notification.Name = UIResponder.keyboardWillHideNotification
 }
+
+struct ChangeMapState: NoticeType {
+    typealias InfoType = Bool
+    static let name: Notification.Name = Notification.Name(rawValue: "ChangeMapState")
+}

@@ -62,6 +62,13 @@ class AGViewController: UIViewController {
         self.navigationController?.interactivePopGestureRecognizer?.delegate = self
     }
     
+    func showDetails() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let viewController = storyboard.instantiateViewController(withIdentifier: "AGTourDetailsViewController") as? AGTourDetailsViewController {
+            self.navigationController?.pushViewController(viewController, animated: true)
+        }
+    }
+    
     private func setKeyboardOffset(keyboardInfo: UIKeyboardInfo) {
         let offset = keyboardInfo.frame.size.height
         if self.keyboardOffset != offset {
@@ -74,10 +81,10 @@ class AGViewController: UIViewController {
     }
 
     @available(iOSApplicationExtension, unavailable)
-    func logout() {
+    class func logout() {
         guard let keyWindow = UIApplication.shared.keyWindow else { return }
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let viewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
+        let viewController = storyboard.instantiateViewController(withIdentifier: "AGLoginViewController")
         keyWindow.rootViewController = UINavigationController(rootViewController: viewController)
         keyWindow.makeKeyAndVisible()
     }
