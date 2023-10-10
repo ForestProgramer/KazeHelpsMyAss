@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+/// Контроллер початкового скроллера
 class AGStartViewController: AGViewController {
 
     @IBOutlet private weak var topConstant: NSLayoutConstraint!

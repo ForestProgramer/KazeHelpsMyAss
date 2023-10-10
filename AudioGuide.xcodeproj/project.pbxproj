@@ -68,6 +68,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		505C2CDC2AD451D600B0F507 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6179C54B800980451E3FAAFD /* Pods-AudioGuide.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AudioGuide.release.xcconfig"; path = "Target Support Files/Pods-AudioGuide/Pods-AudioGuide.release.xcconfig"; sourceTree = "<group>"; };
 		84F1FCA23A117D0BE09524BF /* Pods-AudioGuide.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AudioGuide.debug.xcconfig"; path = "Target Support Files/Pods-AudioGuide/Pods-AudioGuide.debug.xcconfig"; sourceTree = "<group>"; };
 		9AA6FF43ABE36BF564E9C442 /* Pods_AudioGuide.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AudioGuide.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,7 +99,6 @@
 		CBB540A727A925D8009E2917 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CBB540A927A925DA009E2917 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CBB540AC27A925DA009E2917 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		CBB540AE27A925DA009E2917 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CBB540C727A97841009E2917 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
 		CBB540CD27A97841009E2917 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
 		CBB540D027A97841009E2917 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
@@ -295,8 +295,8 @@
 		CBB540B427A9300B009E2917 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				505C2CDC2AD451D600B0F507 /* Info.plist */,
 				CBB540C027A97841009E2917 /* Fonts */,
-				CBB540AE27A925DA009E2917 /* Info.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -780,7 +780,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8238HHB9SU;
+				DEVELOPMENT_TEAM = 6TQ6462CZP;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AudioGuide/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -809,7 +809,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8238HHB9SU;
+				DEVELOPMENT_TEAM = 6TQ6462CZP;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AudioGuide/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

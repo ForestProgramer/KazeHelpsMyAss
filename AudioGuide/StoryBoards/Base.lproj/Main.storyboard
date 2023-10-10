@@ -391,18 +391,18 @@
                     </constraints>
                 </view>
             </objects>
-            <point key="canvasLocation" x="1114" y="-86"/>
+            <point key="canvasLocation" x="1093" y="260"/>
         </scene>
         <!--Favorites-->
         <scene sceneID="spu-rs-VK2">
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="QUx-2V-8M9" customClass="AGFavoritesViewController" customModule="AudioGuide" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VFw-GD-0cm">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n4H-kI-XUQ">
-                                <rect key="frame" x="16" y="85" width="174.5" height="48"/>
+                                <rect key="frame" x="16" y="129" width="174.5" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="Kay-yh-Jeu"/>
                                 </constraints>
@@ -419,7 +419,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="coL-pl-5nx">
-                                <rect key="frame" x="250.5" y="89" width="147.5" height="40"/>
+                                <rect key="frame" x="250.5" y="133" width="147.5" height="40"/>
                                 <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="20"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="My trip">
@@ -433,21 +433,21 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ExK-i0-0qU">
-                                <rect key="frame" x="0.0" y="138" width="414" height="1"/>
+                                <rect key="frame" x="0.0" y="182" width="414" height="1"/>
                                 <color key="backgroundColor" red="0.92941176470588238" green="0.92549019607843142" blue="0.92941176470588238" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="Xjf-Ra-s0j"/>
                                 </constraints>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="selector_icon" translatesAutoresizingMaskIntoConstraints="NO" id="eEN-Y5-vJA">
-                                <rect key="frame" x="59.5" y="133.5" width="88" height="10"/>
+                                <rect key="frame" x="59.5" y="177.5" width="88" height="10"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="88" id="aL2-fZ-S04"/>
                                     <constraint firstAttribute="height" constant="10" id="euX-Qo-k73"/>
                                 </constraints>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ePX-ph-xo0">
-                                <rect key="frame" x="0.0" y="159.5" width="414" height="682.5"/>
+                                <rect key="frame" x="0.0" y="203.5" width="414" height="692.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="AGGuideTableViewCell" rowHeight="170" id="EwY-Em-8ME" customClass="AGGuideTableViewCell" customModule="AudioGuide" customModuleProvider="target">
@@ -509,7 +509,7 @@
                                 </connections>
                             </tableView>
                             <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="selector_icon" translatesAutoresizingMaskIntoConstraints="NO" id="0Rf-bn-yxm">
-                                <rect key="frame" x="280.5" y="133.5" width="88" height="10"/>
+                                <rect key="frame" x="280.5" y="177.5" width="88" height="10"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="88" id="3m8-8t-diN"/>
                                     <constraint firstAttribute="height" constant="10" id="taa-Oh-dfw"/>
@@ -556,18 +556,18 @@
             <objects>
                 <viewController id="lP9-xE-mi5" customClass="AGMapViewController" customModule="AudioGuide" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zOt-qe-aGT">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1K1-fT-OWj" customClass="AGMapView" customModule="AudioGuide" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="759"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QtH-T4-fov" customClass="AGARVIew" customModule="AudioGuide" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="759"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
                                 <subviews>
                                     <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pkp-K6-bAu">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="759"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="769"/>
                                     </arscnView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -628,7 +628,7 @@
             <objects>
                 <viewController id="6QS-eH-giL" customClass="AGWhereGoViewController" customModule="AudioGuide" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MIL-Zx-ZNu">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="4XM-mN-GCd"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -645,7 +645,7 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="Hhl-FO-QL4" customClass="AGAudioTourController" customModule="AudioGuide" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="F7o-h7-LFc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mCQ-of-2j0">
@@ -2285,7 +2285,7 @@ Taras Shevchenko – “Kobzar”, well-known Ukrainian poet, artist, social act
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SpO-K3-Qu5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="165" y="-86"/>
+            <point key="canvasLocation" x="152" y="261"/>
         </scene>
         <!--Start View Controller-->
         <scene sceneID="t7P-Tj-7gv">
@@ -2402,7 +2402,7 @@ Taras Shevchenko – “Kobzar”, well-known Ukrainian poet, artist, social act
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nhe-Za-sHy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2083" y="-86"/>
+            <point key="canvasLocation" x="1958" y="303"/>
         </scene>
         <!--Subscriptions View Controller-->
         <scene sceneID="0IS-q9-Y5b">
@@ -2690,7 +2690,7 @@ Taras Shevchenko – “Kobzar”, well-known Ukrainian poet, artist, social act
                     </constraints>
                 </view>
             </objects>
-            <point key="canvasLocation" x="-833" y="-86"/>
+            <point key="canvasLocation" x="-836" y="-86"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="apD-L2-9rD">
@@ -2704,8 +2704,8 @@ Taras Shevchenko – “Kobzar”, well-known Ukrainian poet, artist, social act
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <viewLayoutGuide key="contentLayoutGuide" id="1b6-xl-3FD"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="LGJ-K4-1XP"/>
+                                <viewLayoutGuide key="contentLayoutGuide" id="htd-Dl-Pbh"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="Xyw-aU-lH1"/>
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4tN-Hm-oFn"/>
@@ -3016,7 +3016,7 @@ Taras Shevchenko – “Kobzar”, well-known Ukrainian poet, artist, social act
                     </constraints>
                 </view>
             </objects>
-            <point key="canvasLocation" x="3085.507246376812" y="-86.383928571428569"/>
+            <point key="canvasLocation" x="3104" y="-86"/>
         </scene>
         <!--Registration View Controller-->
         <scene sceneID="Mo2-fH-tQt">
@@ -3439,10 +3439,10 @@ Taras Shevchenko – “Kobzar”, well-known Ukrainian poet, artist, social act
                             <constraints>
                                 <constraint firstAttribute="height" constant="240" id="HY4-aS-Wiw"/>
                             </constraints>
-                            <mutableString key="text">Taras Shevchenko – “Kobzar”, well-known Ukrainian poet, artist, social activist and  fighter for freedom of his people. Author many of works which are translated for many languages all over the world. 
+                            <string key="text">Taras Shevchenko – “Kobzar”, well-known Ukrainian poet, artist, social activist and  fighter for freedom of his people. Author many of works which are translated for many languages all over the world. 
 Taras Shevchenko – “Kobzar”, well-known Ukrainian poet, artist, social activist and  fighter for freedom of his people. Author many of works which are translated for many languages all over the world. Taras Shevchenko – “Kobzar”, well-known Ukrainian poet, artist, social activist and  fighter for freedom of his people. Author many of works which are translated for many languages all over the world. 
 Taras Shevchenko – “Kobzar”, well-known Ukrainian poet, artist, social activist and  fighter for freedom of his people. Author many of works which are translated for many languages all over the world. Taras Shevchenko – “Kobzar”, well-known Ukrainian poet, artist, social activist and  fighter for freedom of his people. Author many of works which are translated for many languages all over the world. 
-Taras Shevchenko – “Kobzar”, well-known Ukrainian poet, artist, social activist and  fighter for freedom of his people. Author many of works which are translated for many languages all over the world. </mutableString>
+Taras Shevchenko – “Kobzar”, well-known Ukrainian poet, artist, social activist and  fighter for freedom of his people. Author many of works which are translated for many languages all over the world. </string>
                             <color key="textColor" red="0.32156862745098036" green="0.33333333333333331" blue="0.3529411764705882" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -3726,8 +3726,7 @@ Taras Shevchenko – “Kobzar”, well-known Ukrainian poet, artist, social act
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="bjl-QE-QxV"/>
-        <segue reference="V3O-Gg-Hw0"/>
+        <segue reference="kHR-HK-QbK"/>
         <segue reference="7Wb-nD-Aco"/>
     </inferredMetricsTieBreakers>
     <resources>

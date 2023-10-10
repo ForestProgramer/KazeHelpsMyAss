@@ -4,20 +4,26 @@
 //
 //  Created by Sergej Bekker on 04.02.2022.
 //
-
+/// Доповнена Реальність ViewController
 import UIKit
 import ARKit
 import SceneKit
 import NoticeObserveKit
 
 class AGMapViewController: AGViewController {
-
+    // MARK: IBOutlet
+    ///Аутлет Поп-ап меню при виборі певної локації на мапі або на доповненій реальності
     @IBOutlet private weak var popupView: AGDetailsPopup!
+    ///Аутлет Гугл Мапи В'ю
     @IBOutlet private weak var mapView: AGMapView!
+    ///Аулет В'ю Доповненої реальності
     @IBOutlet private weak var arkitView: AGARVIew!
+    // MARK: Поля класу
     
+    ///Булівська змінна , яка визначає чи поп-ап показаний чи ні
     private var isPopupShow = false
-    private let pool = NoticeObserverPool()
+    ///НЕЯСНО
+    private let pool = Notice.ObserverPool()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,23 +32,24 @@ class AGMapViewController: AGViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        /// Налаштування Ar
         let configuration = ARWorldTrackingConfiguration()
         configuration.worldAlignment = .gravityAndHeading
         self.arkitView.sceneView.session.run(configuration)
     }
-    
+    ///Функція яка відповідає за функціонал який виконується при зниканні в'ю. В даному випадку зупиняємо роботу ARKIT
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.arkitView.sceneView.session.pause()
     }
-    
+    /// Цей фрагмент коду вказує на те що  наступний код який йде після нього не доступний на данній версії розширення
     @available(iOSApplicationExtension, unavailable)
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         self.popupView.frame = isPopupShow ? CGRect(x: 0, y: self.view.frame.height - 150 - AGMainTabBarController.tabBarHeight - self.safeAreaBottomHeight, width: self.view.frame.width, height: 150) : CGRect(x: 0, y: self.view.frame.height + AGMainTabBarController.tabBarHeight , width: self.view.frame.width, height: 150)
         
     }
-    
+    /// добавлення поп-апу на екран
     @available(iOSApplicationExtension, unavailable)
     private func setup() {
         self.view.addSubview(popupView)
