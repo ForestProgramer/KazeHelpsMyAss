@@ -52,6 +52,6 @@ extension AGLocationListViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.showDetails()
+        self.showLocationDetails()
     }
 }

@@ -9,14 +9,18 @@ import UIKit
 
 class AGLocationCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet private weak var imageView: UIImageView!
-    
+//    @IBOutlet weak var imageView: UIImageView!
+
+    @IBOutlet weak var locationsIconsImageView: UIImageView!
     override class func awakeFromNib() {
         super.awakeFromNib()
-        
     }
     
     func setup() {
-        self.imageView.image = UIImage(named: "location_cell_icon")
+        if let image = UIImage(named: "locationCell"){
+            locationsIconsImageView.image = image
+            }
+//        contentView.backgroundColor = .blue
     }
 }
+

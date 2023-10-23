@@ -58,6 +58,13 @@ class AGMainTabBarController: UITabBarController {
     
     private func setup() {
 
+        if UserDefaults.isFreeVersion == true {
+            var viewControllers = self.viewControllers
+            viewControllers?.remove(at: 1)
+            self.viewControllers = viewControllers
+            
+        }
+        
         self.topPanel.selectIndex = 0
         if let items = self.tabBar.items {
             for item in items {

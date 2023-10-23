@@ -24,7 +24,10 @@ class AGStartViewController: AGViewController {
     
     @IBAction private func continueFree() {
         UserDefaults.isFreeVersion = true
-        self.performSegue(withIdentifier: "showRegistrationSeque", sender: self)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let viewController = storyboard.instantiateViewController(withIdentifier: "AGMainTabBarController") as? AGMainTabBarController {
+            self.navigationController?.pushViewController(viewController, animated: true)
+        }
     }
     
     // MARK: - Navigation

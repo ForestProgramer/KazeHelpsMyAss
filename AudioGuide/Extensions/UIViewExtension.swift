@@ -85,7 +85,7 @@ extension UIView {
         let gradient: CAGradientLayer = CAGradientLayer()
         gradient.startPoint = CGPoint(x: 0.5, y: 0)
         gradient.endPoint = CGPoint(x: 0.5, y: 1)
-        gradient.frame = self.bounds
+        gradient.frame = CGRect(x: 0, y: 0, width: self.bounds.width + 16, height: self.bounds.height)
         gradient.colors = colours.map { $0.cgColor }
         gradient.locations = locations
         self.layer.insertSublayer(gradient, at: 0)

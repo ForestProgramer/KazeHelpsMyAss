@@ -62,9 +62,15 @@ class AGViewController: UIViewController {
         self.navigationController?.interactivePopGestureRecognizer?.delegate = self
     }
     
-    func showDetails() {
+    func showLocationDetails() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let viewController = storyboard.instantiateViewController(withIdentifier: "AGTourDetailsViewController") as? AGTourDetailsViewController {
+            self.navigationController?.pushViewController(viewController, animated: true)
+        }
+    }
+    func showAudioDetails() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let viewController = storyboard.instantiateViewController(withIdentifier: "AudioDetailsViewController") as? AudioDetailsViewController {
             self.navigationController?.pushViewController(viewController, animated: true)
         }
     }

@@ -22,23 +22,44 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         UITextField.appearance().textColor = UIColor(named: "AccentColor")
         UITabBar.appearance().barTintColor = UIColor(hexString: "#F8F8F8").withAlphaComponent(0.65)
         
-        if let isOnboard = UserDefaults.isOnboard, isOnboard, UserDefaults.userEmail == nil {
-            //let viewController = storyboard.instantiateViewController(withIdentifier: "AGStartViewController")
-            let viewController = storyboard.instantiateViewController(withIdentifier: "AGMainTabBarController")
-            let navViewController = UINavigationController(rootViewController: viewController)
-            navViewController.isNavigationBarHidden = true
-            //let viewController = storyboard.instantiateViewController(withIdentifier: "AGSubscriptionsViewController")
-            window.rootViewController = navViewController
-            self.window = window
-            window.makeKeyAndVisible()
-        } else if UserDefaults.userEmail != nil {
-            let viewController = storyboard.instantiateViewController(withIdentifier: "AGTabViewController")
-            window.rootViewController = UINavigationController(rootViewController: viewController)
-            self.window = window
-            window.makeKeyAndVisible()
+        if UserDefaults.isFreeVersion == true{
+            startApp(storyboard: storyboard, window: window)
+        }else {
+            startStartScreen(storyboard: storyboard, window: window)
         }
+//        if let isOnboard = UserDefaults.isOnboard, isOnboard, UserDefaults.userEmail == nil {
+//            //let viewController = storyboard.instantiateViewController(withIdentifier: "AGStartViewController")
+//            let viewController = storyboard.instantiateViewController(withIdentifier: "AGMainTabBarController")
+//            let navViewController = UINavigationController(rootViewController: viewController)
+//            navViewController.isNavigationBarHidden = true
+//            //let viewController = storyboard.instantiateViewController(withIdentifier: "AGSubscriptionsViewController")
+//            window.rootViewController = navViewController
+//            self.window = window
+//            window.makeKeyAndVisible()
+//        } else if UserDefaults.userEmail != nil {
+//            let viewController = storyboard.instantiateViewController(withIdentifier: "AGTabViewController")
+//            window.rootViewController = UINavigationController(rootViewController: viewController)
+//            self.window = window
+//            window.makeKeyAndVisible()
+//        }
+    }
+    private func startApp(storyboard : UIStoryboard, window : UIWindow){
+//        let viewController = storyboard.instantiateViewController(withIdentifier: "AGStartViewController")
+        let viewController = storyboard.instantiateViewController(withIdentifier: "AGMainTabBarController")
+        let navViewController = UINavigationController(rootViewController: viewController)
+        navViewController.isNavigationBarHidden = true
+        //let viewController = storyboard.instantiateViewController(withIdentifier: "AGSubscriptionsViewController")
+        window.rootViewController = navViewController
+        self.window = window
+        window.makeKeyAndVisible()
     }
 
+    private func startStartScreen(storyboard : UIStoryboard, window : UIWindow){
+        let viewController = storyboard.instantiateViewController(withIdentifier: "AGOnboardViewController")
+        window.rootViewController = UINavigationController(rootViewController: viewController)
+        self.window = window
+        window.makeKeyAndVisible()
+    }
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
         // This occurs shortly after the scene enters the background, or when its session is discarded.

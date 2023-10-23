@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		501B0CD12AD9668E003FED7B /* AudioDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501B0CD02AD9668E003FED7B /* AudioDetailsViewController.swift */; };
+		505A65312AD8319E00C1BB91 /* ReviewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505A65302AD8319E00C1BB91 /* ReviewsTableViewCell.swift */; };
+		505CDF2A2ADAD1140061EF75 /* OthersAudioToursTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505CDF292ADAD1140061EF75 /* OthersAudioToursTableViewCell.swift */; };
+		505CDF2C2ADAD2B70061EF75 /* ElementsToursCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505CDF2B2ADAD2B70061EF75 /* ElementsToursCollectionViewCell.swift */; };
+		506197692AE126D9006C13FF /* CreateNewTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506197682AE126D9006C13FF /* CreateNewTripViewController.swift */; };
+		50AC73A72ADE7C5D0097F5FB /* ResultSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AC73A62ADE7C5D0097F5FB /* ResultSearchTableViewCell.swift */; };
+		50F3561B2AD9AD2100020F62 /* AGDetailsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F3561A2AD9AD2100020F62 /* AGDetailsCollectionViewCell.swift */; };
 		CB0E334527ABE13F007AB7DC /* AGButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0E334427ABE13F007AB7DC /* AGButton.swift */; };
 		CB0E334827ABECA5007AB7DC /* AGStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0E334727ABECA5007AB7DC /* AGStartViewController.swift */; };
 		CB0E334B27ABECEE007AB7DC /* AGSubscriptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0E334A27ABECEE007AB7DC /* AGSubscriptionsViewController.swift */; };
@@ -59,7 +66,7 @@
 		CBC4809F27D87E6C00FD49CC /* AGLocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC4809E27D87E6C00FD49CC /* AGLocationTableViewCell.swift */; };
 		CBC480A127D87E8200FD49CC /* AGGuideTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC480A027D87E8200FD49CC /* AGGuideTableViewCell.swift */; };
 		CBC480A427D8860500FD49CC /* AGTourDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC480A327D8860500FD49CC /* AGTourDetailsViewController.swift */; };
-		CBC480A627D8980900FD49CC /* AGDetailsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC480A527D8980900FD49CC /* AGDetailsCollectionViewCell.swift */; };
+		CBC480A627D8980900FD49CC /* AudioDetailsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC480A527D8980900FD49CC /* AudioDetailsCollectionViewCell.swift */; };
 		CBC480A827D8A2D200FD49CC /* AGMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC480A727D8A2D200FD49CC /* AGMapView.swift */; };
 		CBC480AA27D8B35C00FD49CC /* AGDetailsPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC480A927D8B35C00FD49CC /* AGDetailsPopup.swift */; };
 		CBC480AC27D8B95F00FD49CC /* AGARVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC480AB27D8B95F00FD49CC /* AGARVIew.swift */; };
@@ -68,7 +75,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		501B0CD02AD9668E003FED7B /* AudioDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioDetailsViewController.swift; sourceTree = "<group>"; };
+		505A65302AD8319E00C1BB91 /* ReviewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsTableViewCell.swift; sourceTree = "<group>"; };
 		505C2CDC2AD451D600B0F507 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		505CDF292ADAD1140061EF75 /* OthersAudioToursTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OthersAudioToursTableViewCell.swift; sourceTree = "<group>"; };
+		505CDF2B2ADAD2B70061EF75 /* ElementsToursCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementsToursCollectionViewCell.swift; sourceTree = "<group>"; };
+		506197682AE126D9006C13FF /* CreateNewTripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewTripViewController.swift; sourceTree = "<group>"; };
+		50AC73A62ADE7C5D0097F5FB /* ResultSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultSearchTableViewCell.swift; sourceTree = "<group>"; };
+		50F3561A2AD9AD2100020F62 /* AGDetailsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGDetailsCollectionViewCell.swift; sourceTree = "<group>"; };
 		6179C54B800980451E3FAAFD /* Pods-AudioGuide.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AudioGuide.release.xcconfig"; path = "Target Support Files/Pods-AudioGuide/Pods-AudioGuide.release.xcconfig"; sourceTree = "<group>"; };
 		84F1FCA23A117D0BE09524BF /* Pods-AudioGuide.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AudioGuide.debug.xcconfig"; path = "Target Support Files/Pods-AudioGuide/Pods-AudioGuide.debug.xcconfig"; sourceTree = "<group>"; };
 		9AA6FF43ABE36BF564E9C442 /* Pods_AudioGuide.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AudioGuide.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -125,7 +139,7 @@
 		CBC4809E27D87E6C00FD49CC /* AGLocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGLocationTableViewCell.swift; sourceTree = "<group>"; };
 		CBC480A027D87E8200FD49CC /* AGGuideTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGGuideTableViewCell.swift; sourceTree = "<group>"; };
 		CBC480A327D8860500FD49CC /* AGTourDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGTourDetailsViewController.swift; sourceTree = "<group>"; };
-		CBC480A527D8980900FD49CC /* AGDetailsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGDetailsCollectionViewCell.swift; sourceTree = "<group>"; };
+		CBC480A527D8980900FD49CC /* AudioDetailsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioDetailsCollectionViewCell.swift; sourceTree = "<group>"; };
 		CBC480A727D8A2D200FD49CC /* AGMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGMapView.swift; sourceTree = "<group>"; };
 		CBC480A927D8B35C00FD49CC /* AGDetailsPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGDetailsPopup.swift; sourceTree = "<group>"; };
 		CBC480AB27D8B95F00FD49CC /* AGARVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGARVIew.swift; sourceTree = "<group>"; };
@@ -144,6 +158,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		505CDF282ADAD0D20061EF75 /* AudioToursDetailsCells */ = {
+			isa = PBXGroup;
+			children = (
+				505CDF292ADAD1140061EF75 /* OthersAudioToursTableViewCell.swift */,
+				505CDF2B2ADAD2B70061EF75 /* ElementsToursCollectionViewCell.swift */,
+			);
+			path = AudioToursDetailsCells;
+			sourceTree = "<group>";
+		};
 		5F55AB280615753AC8E978D8 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -199,6 +222,7 @@
 				CB6F9EC327B18E12008FA2E9 /* AGAudioTourController.swift */,
 				CBC4809A27D87C3C00FD49CC /* AGLocationListViewController.swift */,
 				CBC4809C27D87C6900FD49CC /* AGGuideListViewController.swift */,
+				501B0CD02AD9668E003FED7B /* AudioDetailsViewController.swift */,
 			);
 			path = AudioTourControllers;
 			sourceTree = "<group>";
@@ -207,6 +231,7 @@
 			isa = PBXGroup;
 			children = (
 				CB6F9EC627B18E3E008FA2E9 /* AGFavoritesViewController.swift */,
+				506197682AE126D9006C13FF /* CreateNewTripViewController.swift */,
 			);
 			path = FavoritesViewController;
 			sourceTree = "<group>";
@@ -239,14 +264,18 @@
 		CB6FDD0C27D760510087C9DF /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				505CDF282ADAD0D20061EF75 /* AudioToursDetailsCells */,
 				CB6FDD0D27D760740087C9DF /* AGIntrastingTableViewCell.swift */,
 				CB6FDD1427D786F70087C9DF /* AGInfrastructureTableViewCell.swift */,
 				CBBFABF927D7C75200700361 /* AGLocationCollectionViewCell.swift */,
 				CBBFABFB27D7CFC800700361 /* AGCuideCollectionViewCell.swift */,
-				CBC480A527D8980900FD49CC /* AGDetailsCollectionViewCell.swift */,
+				CBC480A527D8980900FD49CC /* AudioDetailsCollectionViewCell.swift */,
 				CBBFABFD27D7CFD800700361 /* AGCafeCollectionViewCell.swift */,
 				CBC4809E27D87E6C00FD49CC /* AGLocationTableViewCell.swift */,
 				CBC480A027D87E8200FD49CC /* AGGuideTableViewCell.swift */,
+				505A65302AD8319E00C1BB91 /* ReviewsTableViewCell.swift */,
+				50F3561A2AD9AD2100020F62 /* AGDetailsCollectionViewCell.swift */,
+				50AC73A62ADE7C5D0097F5FB /* ResultSearchTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -589,21 +618,25 @@
 				CB6FDD1727D788900087C9DF /* AGInfDetailsViewController.swift in Sources */,
 				CBB5410427AAB9A1009E2917 /* UITextFieldExtension.swift in Sources */,
 				CBB5410A27AAB9A1009E2917 /* DictionaryExtension.swift in Sources */,
+				501B0CD12AD9668E003FED7B /* AudioDetailsViewController.swift in Sources */,
 				CBBFABFE27D7CFD800700361 /* AGCafeCollectionViewCell.swift in Sources */,
 				CB6F9EC127B189B6008FA2E9 /* AGMainTabBarController.swift in Sources */,
 				CB6FDD0827D683D90087C9DF /* AGFilterMapView.swift in Sources */,
 				CBB5410E27AABA26009E2917 /* AGNotificationPanel.swift in Sources */,
 				CB0E334E27AC0464007AB7DC /* AGLoginViewController.swift in Sources */,
 				CBC4809B27D87C3C00FD49CC /* AGLocationListViewController.swift in Sources */,
+				505A65312AD8319E00C1BB91 /* ReviewsTableViewCell.swift in Sources */,
 				CBBFABFA27D7C75200700361 /* AGLocationCollectionViewCell.swift in Sources */,
 				CBC4809F27D87E6C00FD49CC /* AGLocationTableViewCell.swift in Sources */,
 				CB6FDD0B27D75C040087C9DF /* AGIntrastingViewController.swift in Sources */,
 				CBB540A127A925D8009E2917 /* AppDelegate.swift in Sources */,
 				CBC480A127D87E8200FD49CC /* AGGuideTableViewCell.swift in Sources */,
 				CBB5410627AAB9A1009E2917 /* NSLocalizedStringExetnsion.swift in Sources */,
+				50F3561B2AD9AD2100020F62 /* AGDetailsCollectionViewCell.swift in Sources */,
 				CBB5410227AAB9A1009E2917 /* NotificationsExtension.swift in Sources */,
 				CB6F9ECE27B18E9B008FA2E9 /* AGMapViewController.swift in Sources */,
 				CB6FDD0E27D760740087C9DF /* AGIntrastingTableViewCell.swift in Sources */,
+				50AC73A72ADE7C5D0097F5FB /* ResultSearchTableViewCell.swift in Sources */,
 				CB0E334527ABE13F007AB7DC /* AGButton.swift in Sources */,
 				CBB540A327A925D8009E2917 /* SceneDelegate.swift in Sources */,
 				CBC480AC27D8B95F00FD49CC /* AGARVIew.swift in Sources */,
@@ -621,16 +654,19 @@
 				CBB5411027AAC14D009E2917 /* AGLabel.swift in Sources */,
 				CB0E334827ABECA5007AB7DC /* AGStartViewController.swift in Sources */,
 				CB6FDD0427D669A60087C9DF /* AGTopPanel.swift in Sources */,
+				505CDF2A2ADAD1140061EF75 /* OthersAudioToursTableViewCell.swift in Sources */,
 				CB6FDD1327D776400087C9DF /* AGInfrastructureViewControllers.swift in Sources */,
+				505CDF2C2ADAD2B70061EF75 /* ElementsToursCollectionViewCell.swift in Sources */,
 				CB6F9ECA27B18E70008FA2E9 /* AGWhereGoViewController.swift in Sources */,
 				CBB540F527AAB846009E2917 /* AGOnboardViewController.swift in Sources */,
 				CB6F9EC727B18E3E008FA2E9 /* AGFavoritesViewController.swift in Sources */,
 				CB0E335127AC0E47007AB7DC /* AGRegistrationViewController.swift in Sources */,
 				CBB5410B27AAB9A1009E2917 /* UserDefaultsExtension.swift in Sources */,
 				CB6FDD1027D76D760087C9DF /* AGIntrastingDetailsViewController.swift in Sources */,
+				506197692AE126D9006C13FF /* CreateNewTripViewController.swift in Sources */,
 				CBB5410827AAB9A1009E2917 /* UIFontExtension.swift in Sources */,
 				CBC480AE27D8DBBB00FD49CC /* FloatingPoint+Extension.swift in Sources */,
-				CBC480A627D8980900FD49CC /* AGDetailsCollectionViewCell.swift in Sources */,
+				CBC480A627D8980900FD49CC /* AudioDetailsCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
