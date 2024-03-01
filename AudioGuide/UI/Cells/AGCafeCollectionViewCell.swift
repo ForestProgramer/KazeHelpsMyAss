@@ -10,13 +10,15 @@ import UIKit
 class AGCafeCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet private weak var imageView: UIImageView!
+    @IBOutlet weak var pointCafeLabel: UILabel!
     
     override class func awakeFromNib() {
         super.awakeFromNib()
         
     }
     
-    func setup() {
-        self.imageView.image = UIImage(named: "cafe_cell_icon")
+    func setup(with cafe : Cafe) {
+        imageView.image = UIImage(named: cafe.photoName)
+        pointCafeLabel.text = cafe.rating
     }
 }

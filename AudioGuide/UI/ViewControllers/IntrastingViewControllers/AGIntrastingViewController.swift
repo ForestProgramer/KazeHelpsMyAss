@@ -26,7 +26,7 @@ class AGIntrastingViewController: AGViewController {
     
     @available(iOSApplicationExtension, unavailable)
     private func setup() {
-        self.searchField.clearButtonTintColor = UIColor(named: "AccentColor")
+//        self.searchField.clearButtonTintColor = UIColor(named: "AccentColor")
         self.searchField.attributedPlaceholder = NSAttributedString(string: "Search", attributes: [NSAttributedString.Key.foregroundColor: (UIColor(hexString: "#3C3C43").withAlphaComponent(0.6)), NSAttributedString.Key.font: UIFont.PoppinsFont(ofSize: 14)])
         self.content = self.dataSource
         self.scrollView.addSubview(self.mainView)
@@ -41,13 +41,13 @@ class AGIntrastingViewController: AGViewController {
         self.mainView.frame = self.view.frame
     }
     
-    override func setBottomOffset(keyboardInfo: UIKeyboardInfo) {
-        self.bottomConstant.constant = keyboardInfo.frame.height
-        UIView.animate(withDuration: 0, delay: 0.3, options: UIView.AnimationOptions.curveEaseInOut) {
-            self.view.setNeedsDisplay()
-        } completion: { _ in }
-        
-    }
+//    override func setBottomOffset(keyboardInfo: UIKeyboardInfo) {
+//        self.bottomConstant.constant = keyboardInfo.frame.height
+//        UIView.animate(withDuration: 0, delay: 0.3, options: UIView.AnimationOptions.curveEaseInOut) {
+//            self.view.setNeedsDisplay()
+//        } completion: { _ in }
+//        
+//    }
     
     @IBAction private func unwindWithIntrestingDetailsSegue(unwindSegue: UIStoryboardSegue) {
     }

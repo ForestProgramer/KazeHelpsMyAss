@@ -9,7 +9,7 @@ import UIKit
 import NoticeObserveKit
 import RxSwift
 import RxCocoa
-
+import SystemConfiguration
 extension AGViewController: UIGestureRecognizerDelegate {
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailBy otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
@@ -19,13 +19,15 @@ extension AGViewController: UIGestureRecognizerDelegate {
 
 class AGViewController: UIViewController {
 
-    @IBInspectable var gCorrnerRadius: CGFloat = 10
+    @IBInspectable var gCorrnerRadius: CGFloat = 5
     @IBInspectable var shouldHandleKeyboardSizeChange: Bool = false
     @IBInspectable var cancelsEditingByBackgroundTap: Bool = false
-    
+    private let reachability = SCNetworkReachabilityCreateWithName(nil, "www.apple.com")
+    private var flags = SCNetworkReachabilityFlags()
     private let keyboardPool = NoticeObserverPool()
     private var keyboardOffset: CGFloat = 0
     private var tapRecognizer: UITapGestureRecognizer!
+//    private let viewBackgroundColor : UIColor = .black
     
     
     override var prefersHomeIndicatorAutoHidden: Bool {
@@ -33,12 +35,11 @@ class AGViewController: UIViewController {
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .darkContent
+        return .lightContent
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
         if self.shouldHandleKeyboardSizeChange {
             UIKeyboardWillChangeFrame.observe {[weak self] keyboardInfo in
                 guard let `self` = self else { return }
@@ -85,14 +86,71 @@ class AGViewController: UIViewController {
     
     func setBottomOffset(keyboardInfo: UIKeyboardInfo) {
     }
+    public func isInternetConnected(completion: @escaping (SCNetworkReachabilityFlags) -> Void) {
+        // Додати слухача подій для моніторингу змін стану мережі
+        var context = SCNetworkReachabilityContext(version: 0, info: nil, retain: nil, release: nil, copyDescription: nil)
+        context.info = UnsafeMutableRawPointer(Unmanaged.passUnretained(self).toOpaque())
 
+        if SCNetworkReachabilitySetCallback(reachability!, { (reachability, flags, info) in
+            if let info = info {
+                let sceneDelegate = Unmanaged<AGViewController>.fromOpaque(info).takeUnretainedValue()
+                sceneDelegate.flags = flags
+//                completion(flags)
+            }
+        }, &context) {
+            SCNetworkReachabilityScheduleWithRunLoop(reachability!, CFRunLoopGetCurrent(), CFRunLoopMode.defaultMode.rawValue)
+        }
+
+        // Початкова перевірка стану мережі
+        var flags = SCNetworkReachabilityFlags()
+        SCNetworkReachabilityGetFlags(reachability!, &flags)
+
+        // Викликати замикання з параметром flags
+        completion(flags)
+    }
+    // Функція для обробки змін стану мережі
+    public func handleNetworkChange(flags: SCNetworkReachabilityFlags)->Bool {
+        let isReachable = flags.contains(.reachable)
+        let needsConnection = flags.contains(.connectionRequired)
+
+           if isReachable && !needsConnection {
+               // Інтернет доступний, нічого не робимо
+               return false
+           } else {
+               // Немає інтернет-з'єднання, показуємо повідомлення
+               return true
+           }
+    }
+    public func showNoWifi4PopUp() {
+        DispatchQueue.main.async {
+           
+
+            let wifiPopUpView = LostWifiConnectionUIView()
+            wifiPopUpView.frame = self.view.bounds
+            self.view.addSubview(wifiPopUpView)
+
+            print("Everything must work")
+            wifiPopUpView.alpha = 0.0
+
+            // Анімація відображення затемнення і поп-апу
+            UIView.animate(withDuration: 0.3) {
+                wifiPopUpView.alpha = 1.0
+            }
+        }
+    }
+    
     @available(iOSApplicationExtension, unavailable)
     class func logout() {
-        guard let keyWindow = UIApplication.shared.keyWindow else { return }
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let viewController = storyboard.instantiateViewController(withIdentifier: "AGLoginViewController")
-        keyWindow.rootViewController = UINavigationController(rootViewController: viewController)
-        keyWindow.makeKeyAndVisible()
+        DispatchQueue.main.async {
+            guard let keyWindow = UIApplication.shared.keyWindow else { return }
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            guard let viewController = storyboard.instantiateViewController(withIdentifier: "AGLoginViewController") as? AGLoginViewController else{
+                return
+            }
+            keyWindow.rootViewController = UINavigationController(rootViewController: viewController)
+            keyWindow.makeKeyAndVisible()
+        }
     }
     
     @objc private func backgroundTapAction(recognizer: UITapGestureRecognizer) {

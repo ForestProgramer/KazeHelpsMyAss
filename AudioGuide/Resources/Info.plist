@@ -2,6 +2,38 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>GIDClientID</key>
+	<string>960801909314-1bs3ksqiocr1noen18gq70076d3na17c.apps.googleusercontent.com</string>
+	<key>GIDServerClientID</key>
+	<string>960801909314-di1v9ikjsdf600tg4v8k80h9nlvj0n64.apps.googleusercontent.com</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.960801909314-1bs3ksqiocr1noen18gq70076d3na17c</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb1142508263385744</string>
+			</array>
+		</dict>
+	</array>
+	<key>FacebookAppID</key>
+	<string>1142508263385744</string>
+	<key>FacebookClientToken</key>
+	<string>ac74962c6cf8bf6371579d39d0702070</string>
+	<key>FacebookDisplayName</key>
+	<string>Audio-Guide-iOS</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>fbapi</string>
+		<string>fb-messenger-share-api</string>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -21,5 +53,9 @@
 			</array>
 		</dict>
 	</dict>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Please allow access to your microphone, so you will have posibility for voice search.</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>Please allow access to your voice recognition, so we can describe your voice into text.</string>
 </dict>
 </plist>

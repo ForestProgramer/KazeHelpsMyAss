@@ -12,5 +12,11 @@ target 'AudioGuide' do
     pod 'GoogleMaps'
     pod 'GooglePlaces'
     pod 'Google-Maps-iOS-Utils'
+    pod 'FBSDKLoginKit', '~> 11.2.1'
+    pod 'GoogleSignIn'
+    pod 'SkeletonView'
+    pod 'SDWebImage'
+    pod 'InstantSearchVoiceOverlay'
+    pod 'UIScrollView-InfiniteScroll'
 end
 

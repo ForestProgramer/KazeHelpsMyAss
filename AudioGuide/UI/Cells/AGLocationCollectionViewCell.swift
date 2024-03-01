@@ -6,21 +6,32 @@
 //
 
 import UIKit
-
+import SDWebImage
 class AGLocationCollectionViewCell: UICollectionViewCell {
-    
-//    @IBOutlet weak var imageView: UIImageView!
-
+    static let identifier = "AGLocationCollectionViewCell"
+    static let resultIdentifier = "ResultIdentifier"
     @IBOutlet weak var locationsIconsImageView: UIImageView!
+    @IBOutlet weak var nameLocationLabel: UILabel!
+    @IBOutlet weak var adressLocationLabel: UILabel!
     override class func awakeFromNib() {
         super.awakeFromNib()
     }
-    
-    func setup() {
-        if let image = UIImage(named: "locationCell"){
-            locationsIconsImageView.image = image
+    func setup(with location : Location) {
+        print("Location url : \(location.photoName) ")
+        let urlImage = location.photoName
+        if let url = URL(string: urlImage){
+            print("Succes URl")
+            locationsIconsImageView.sd_setImage(with: url) { image, error, _, _ in
+                if let error = error{
+                    print("Image error : \(error)")
+                }else{
+                    self.locationsIconsImageView.image = image
+                }
             }
-//        contentView.backgroundColor = .blue
+        }
+        nameLocationLabel.text = location.name
+        adressLocationLabel.text = location.street
+        
     }
 }
 

@@ -21,10 +21,10 @@ class AGTopPanel: UIView {
     var isFilterShow = false
     var selectIndex = 0 {
         didSet {
-            self.filterButton.isHidden = selectIndex < 3
+            self.filterButton.isHidden = false
             self.topLabel.text = ""
             if selectIndex == 0 {
-                self.topLabel.text = "What are you looking for?"
+                self.topLabel.text = ""
             } else if selectIndex == 1 {
                 self.topLabel.text = "Your favorites"
             } else if selectIndex == 2 {

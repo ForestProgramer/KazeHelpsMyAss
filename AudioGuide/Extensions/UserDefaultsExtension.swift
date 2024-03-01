@@ -37,7 +37,32 @@ extension UserDefaults {
             UserDefaults.standard.synchronize()
         }
     }
-    
+    static var isUserAuthorizationPassed: Bool? {
+        get {
+            return UserDefaults.standard.bool(forKey: "isUserAuthorizationPassed")
+        }
+        set {
+            if let value = newValue {
+                UserDefaults.standard.set(value, forKey: "isUserAuthorizationPassed")
+            } else {
+                UserDefaults.standard.removeObject(forKey: "isUserAuthorizationPassed")
+            }
+            UserDefaults.standard.synchronize()
+        }
+    }
+    static var userBearerToken: String? {
+        get {
+            return UserDefaults.standard.string(forKey: "userBearerToken")
+        }
+        set {
+            if let value = newValue {
+                UserDefaults.standard.set(value, forKey: "userBearerToken")
+            } else {
+                UserDefaults.standard.removeObject(forKey: "userBearerToken")
+            }
+            UserDefaults.standard.synchronize()
+        }
+    }
     static var userID: String? {
         get {
             return UserDefaults.standard.string(forKey: "userID")
@@ -108,7 +133,7 @@ extension UserDefaults {
         }
     }
     
-    static var isFirstLaunch: Bool? {
+    static var isFirstLaunchPassed: Bool? {
         get {
             return UserDefaults.standard.bool(forKey: "isFirstLaunch")
         }

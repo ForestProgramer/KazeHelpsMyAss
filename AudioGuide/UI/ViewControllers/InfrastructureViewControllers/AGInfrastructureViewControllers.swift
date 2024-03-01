@@ -28,7 +28,7 @@ class AGInfrastructureViewControllers: AGViewController {
     
     @available(iOSApplicationExtension, unavailable)
     private func setup() {
-        self.searchField.clearButtonTintColor = UIColor(named: "AccentColor")
+//        self.searchField.clearButtonTintColor = UIColor(named: "AccentColor")
         self.searchField.attributedPlaceholder = NSAttributedString(string: "Search", attributes: [NSAttributedString.Key.foregroundColor: (UIColor(hexString: "#3C3C43").withAlphaComponent(0.6)), NSAttributedString.Key.font: UIFont.PoppinsFont(ofSize: 14)])
         //self.topConstant.constant = 8 + self.view.safeAreaTopHeight
         self.content = buttons.map({$0.titleLabel?.text ?? ""})

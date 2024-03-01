@@ -6,11 +6,6 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="Poppins-SemiBold.ttf">
-            <string>Poppins-SemiBold</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="EHf-IW-A2E">
@@ -20,28 +15,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Lviv Audioguide!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CZt-2j-iGw">
-                                <rect key="frame" x="32" y="66" width="350" height="30"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundPhotoLogReg" translatesAutoresizingMaskIntoConstraints="NO" id="KNL-Z1-Loi">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splashScreenText" translatesAutoresizingMaskIntoConstraints="NO" id="bf5-nz-Vd7">
+                                <rect key="frame" x="87" y="384" width="240" height="128"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="d4K-6t-5eA"/>
+                                    <constraint firstAttribute="width" constant="240" id="Ohr-4L-4cL"/>
+                                    <constraint firstAttribute="height" constant="128" id="sQK-Oq-81K"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="20"/>
-                                <color key="textColor" red="0.23921568630000001" green="0.24313725489999999" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="CZt-2j-iGw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="Yi9-ya-t5i"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CZt-2j-iGw" secondAttribute="trailing" constant="32" id="jVd-07-LFH"/>
-                            <constraint firstItem="CZt-2j-iGw" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="22" id="jlE-Ao-rXO"/>
+                            <constraint firstItem="bf5-nz-Vd7" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Glq-W8-qNd"/>
+                            <constraint firstItem="bf5-nz-Vd7" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="R2X-FS-pt8"/>
+                            <constraint firstItem="KNL-Z1-Loi" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="V8C-jA-id5"/>
+                            <constraint firstItem="KNL-Z1-Loi" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Zqb-Rr-gOP"/>
+                            <constraint firstItem="KNL-Z1-Loi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="gGC-IJ-tgO"/>
+                            <constraint firstItem="KNL-Z1-Loi" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="tW4-4V-CJP"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.173913043478265" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="backgroundPhotoLogReg" width="375" height="812"/>
+        <image name="splashScreenText" width="285" height="36"/>
+    </resources>
 </document>

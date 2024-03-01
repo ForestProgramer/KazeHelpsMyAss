@@ -11,6 +11,7 @@ class AGTopMenuView: UIView {
     
     @IBOutlet weak var tableView: UITableView!
     
+    
     var selectItem: ((_ index: Int) -> Void)?
     
     private let dataSource = ["Цікаві факти про Львів", "YouTube про Львів", "Аудіо тури", "Інфраструктура міста", "Запланувати власну екскурсію"]
@@ -24,7 +25,11 @@ class AGTopMenuView: UIView {
         super.init(coder: aDecoder)
 
     }
+    @IBAction func didtapCloseBtn(_ sender: Any) {
+        
+    }
 
+    
 }
 
 // MARK: - UITableViewDataSource methods
