@@ -994,9 +994,9 @@ final class APIManager{
                 completion(.failure(error ?? NSError(domain: "", code: -1, userInfo: nil)))
                 return
             }
-            if let jsonString = String(data: data, encoding: .utf8) {
-                print("JSON Response: \(jsonString)")
-            }
+//            if let jsonString = String(data: data, encoding: .utf8) {
+//                print("JSON Response: \(jsonString)")
+//            }
             do {
                 // Декодування отриманих даних
                 let searchResponse = try JSONDecoder().decode(SearchResponseModel<T>.self, from: data)
