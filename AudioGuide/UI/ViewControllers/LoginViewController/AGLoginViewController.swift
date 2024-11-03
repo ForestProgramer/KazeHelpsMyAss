@@ -50,7 +50,7 @@ class AGLoginViewController: AGViewController {
         button.titleLabel?.textColor = .blue
         button.backgroundColor = .clear
 //        button.permissions = ["email", "public_profile"]
-        button.addTarget(self, action: #selector(loginButtonClicked), for: .touchUpInside)
+        button.addTarget(AGLoginViewController.self, action: #selector(loginButtonClicked), for: .touchUpInside)
         return button
     }()
     let googleButton : UIButton = {
@@ -65,7 +65,7 @@ class AGLoginViewController: AGViewController {
         let button = UIButton(type: .system)
         button.setImage(UIImage(systemName: "xmark"), for: .normal)
         button.tintColor = .white
-        button.addTarget(self, action: #selector(closeResetPasswordView), for: .touchUpInside)
+        button.addTarget(AGLoginViewController.self, action: #selector(closeResetPasswordView), for: .touchUpInside)
         return button
     }()
     let enterMailView = EnterEmailForResetView()

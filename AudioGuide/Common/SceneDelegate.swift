@@ -17,23 +17,23 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+    
+                guard let windowScene = (scene as? UIWindowScene) else { return }
         
-        guard let windowScene = (scene as? UIWindowScene) else { return }
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let window = UIWindow(windowScene: windowScene)
+                print("isUserAuthorizationPassed : \(String(describing: UserDefaults.isUserAuthorizationPassed))")
+                UITabBar.appearance().barTintColor = UIColor(hexString: "#F8F8F8").withAlphaComponent(0.65)
+                if let isFirstLaunchPassed = UserDefaults.isFirstLaunchPassed, isFirstLaunchPassed == false {
+                    // Перший запуск, показати onboarding
+                    print("isFirstLaunch : \(isFirstLaunchPassed)")
+                    startStartScreen(storyboard: storyboard, window: window)
+                } else if let isFreeVersion = UserDefaults.isFreeVersion, let isUserAuthorizationPassed = UserDefaults.isUserAuthorizationPassed {
+                    if isFreeVersion == true || isUserAuthorizationPassed == true{
+                        startApp(storyboard: storyboard, window: window)
+                    }
         
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let window = UIWindow(windowScene: windowScene)
-        print("isUserAuthorizationPassed : \(String(describing: UserDefaults.isUserAuthorizationPassed))")
-        UITabBar.appearance().barTintColor = UIColor(hexString: "#F8F8F8").withAlphaComponent(0.65)
-        if let isFirstLaunchPassed = UserDefaults.isFirstLaunchPassed, isFirstLaunchPassed == false {
-            // Перший запуск, показати onboarding
-            print("isFirstLaunch : \(isFirstLaunchPassed)")
-            startStartScreen(storyboard: storyboard, window: window)
-        } else if let isFreeVersion = UserDefaults.isFreeVersion, let isUserAuthorizationPassed = UserDefaults.isUserAuthorizationPassed {
-            if isFreeVersion == true || isUserAuthorizationPassed == true{
-                startApp(storyboard: storyboard, window: window)
-            }
-            
-        }
+                }
     }
     private func startApp(storyboard : UIStoryboard, window : UIWindow){
         let viewController = storyboard.instantiateViewController(withIdentifier: "AGMainTabBarController")
@@ -138,7 +138,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneDidBecomeActive(_ scene: UIScene) {
         // Called when the scene has moved from an inactive state to an active state.
         // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
-        isInternetConnected()
+//        isInternetConnected()
     }
 
     func sceneWillResignActive(_ scene: UIScene) {

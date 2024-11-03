@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Vector" translatesAutoresizingMaskIntoConstraints="NO" id="bf5-nz-Vd7">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="565"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="565" id="wZd-Xt-0vx"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AD" translatesAutoresizingMaskIntoConstraints="NO" id="VwW-9G-dql">
+                                <rect key="frame" x="74.5" y="611" width="265" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="265" id="N53-Cm-su9"/>
+                                    <constraint firstAttribute="height" constant="128" id="zrq-db-29f"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="VwW-9G-dql" firstAttribute="top" secondItem="bf5-nz-Vd7" secondAttribute="bottom" constant="46" id="30K-Tw-JOM"/>
+                            <constraint firstItem="bf5-nz-Vd7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Pln-3q-lPO"/>
+                            <constraint firstItem="bf5-nz-Vd7" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Vk0-lz-iLh"/>
+                            <constraint firstItem="bf5-nz-Vd7" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="f5U-PY-Ahp"/>
+                            <constraint firstItem="VwW-9G-dql" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="frv-EE-bUg"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="52.173913043478265" y="375"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="AD" width="21" height="15"/>
+        <image name="Vector" width="375" height="511"/>
+    </resources>
+</document>

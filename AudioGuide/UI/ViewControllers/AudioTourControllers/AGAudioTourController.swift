@@ -25,7 +25,7 @@ class AGAudioTourController: AGViewController {
     private var allLocations: [Location] = []
     private var allGuides: [AudioTour] = []
         private var allCafes: [Cafe] = [Cafe(photoName: "cafe_cell_icon", rating: "5"),Cafe(photoName: "cafe_cell_icon", rating: "4"),Cafe(photoName: "cafe_cell_icon", rating: "3.8"),Cafe(photoName: "cafe_cell_icon", rating: "4"),Cafe(photoName: "cafe_cell_icon", rating: "3")]
-    private var filteredLocations: [Location] = [Location(name: "", street: "", photoName: ""),Location(name: "", street: "", photoName: ""),Location(name: "", street: "", photoName: ""),Location(name: "", street: "", photoName: "")]
+    private var filteredLocations: [Location] = [Location(name: "", street: "", photoName: "", id: 0),Location(name: "", street: "", photoName: "", id: 0),Location(name: "", street: "", photoName: "", id: 0),Location(name: "", street: "", photoName: "", id: 0)]
     private var filteredGuides: [AudioTour] = []
 //    private var filteredCafes: [Cafe] = []
     private var isSearching: Bool {
@@ -69,6 +69,7 @@ class AGAudioTourController: AGViewController {
         noAccountPopUp.isHidden = true
         if let tabBarController = self.tabBarController {
         tabBarController.view.addSubview(noAccountPopUp)
+            noAccountPopUp.frame = tabBarController.view.frame
             noAccountPopUp.frame = tabBarController.view.frame
         }
     }
@@ -202,11 +203,13 @@ class AGAudioTourController: AGViewController {
                     let name = point.pointLangData.first?.name ?? "Unknown"
                     let street = point.pointLangData.first?.address ?? "Unknown"
                     let photoName = point.img
-                    let location = Location(name: name, street: street, photoName: "https://seeklogo.com/images/L/lviv-logo-856C608840-seeklogo.com.png")
+                    let locationID = point.id
+                    let location = Location(name: name, street: street, photoName: "https://devapi.test.vn.ua/storage/" + photoName, id: locationID )
                     locations.append(location)
                     for (tourIndex , tour ) in point.tours.enumerated(){
                         let name = tour.toursLangData[tourIndex].name
-                        let audioTour = AudioTour(name: name, duration: tour.duration, distance: tour.distance, price: "0$", photoName: "https://buffer.com/cdn-cgi/image/w=1000,fit=contain,q=90,f=auto/library/content/images/size/w1200/2023/09/instagram-image-size.jpg")
+                        let img = tour.img
+                        let audioTour = AudioTour(id: tour.id, name: name, duration: tour.duration, distance: tour.distance, price: "0$", photoName: "https://devapi.test.vn.ua/storage/" + img)
                         tours.append(audioTour)
                     }
                 }
@@ -248,6 +251,10 @@ class AGAudioTourController: AGViewController {
         guard let idDevice = UserDefaults.standard.value(forKey: "id_device") as? String else{
             return
         }
+        if let customNavigationController = self.navigationController as? CustomNavigationController {
+            // Приховуємо кастомний навігаційний бар
+            customNavigationController.customNavigationBar.isHidden = false // або false для показу
+        }
         apiCall.getPoints(idDevice: idDevice,with: 4) {[weak self] result in
             guard let strongSelf = self else{
                 return
@@ -260,7 +267,8 @@ class AGAudioTourController: AGViewController {
                     let name = point.pointLangData.first?.name ?? "Unknown"
                     let street = point.pointLangData.first?.address ?? "Unknown"
                     let photoName = point.img
-                    let location = Location(name: name, street: street, photoName: "https://seeklogo.com/images/L/lviv-logo-856C608840-seeklogo.com.png")
+                    let locationID = point.id
+                    let location = Location(name: name, street: street, photoName: "https://devapi.test.vn.ua/storage/" + photoName, id: locationID)
                     locations.append(location)
                 }
                 DispatchQueue.main.async {
@@ -285,7 +293,7 @@ class AGAudioTourController: AGViewController {
                     let distance = tour.distance
                     let price = tour.rating
                     let img = tour.img
-                    let audioTour = AudioTour(name: name, duration: duration, distance: distance, price: "\(price)", photoName: "https://buffer.com/cdn-cgi/image/w=1000,fit=contain,q=90,f=auto/library/content/images/size/w1200/2023/09/instagram-image-size.jpg")
+                    let audioTour = AudioTour(id: tour.id, name: name, duration: duration, distance: distance, price: "\(price)", photoName: "https://devapi.test.vn.ua/storage/" + img)
                     allTours.append(audioTour)
                 }
                 strongSelf.allGuides = allTours
@@ -526,9 +534,11 @@ extension AGAudioTourController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 //        self.showLocationDetails()
         if collectionView == self.locationCollectionView{
-            self.showLocationDetails()
+            let choosedId = allLocations[indexPath.row].id
+            self.showLocationDetails(choosedId: choosedId)
         }else if collectionView == self.guideCollectionView{
-            self.showAudioDetails()
+            let choosedId = allGuides[indexPath.row].id
+            self.showTourDetails(choosedId: choosedId)
         }else{
             collectionView.deselectItem(at: indexPath, animated: true)
         }

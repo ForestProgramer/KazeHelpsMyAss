@@ -27,5 +27,20 @@ class CustomNavigationController: UINavigationController {
             customNavigationBar.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             customNavigationBar.heightAnchor.constraint(equalToConstant: CGFloat(CustomNavigationController.customNavigationBarHeight))
         ])
+        
     }
+    // Статичний метод для відображення кастомного навігаційного бару
+//    static func showCustomNavigationBar() {
+////            customNavigationBar.isHidden = false
+//
+//    }
+//    
+//    // Статичний метод для приховування кастомного навігаційного бару
+//    static func hideCustomNavigationBar() {
+//        // Знайдіть поточний навігаційний контролер
+//        if let navigationController = UIApplication.shared.keyWindow?.rootViewController as? CustomNavigationController {
+//           
+//            navigationController.customNavigationBar.isHidden = true
+//        }
+//    }
 }

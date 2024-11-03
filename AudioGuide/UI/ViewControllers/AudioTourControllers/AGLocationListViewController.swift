@@ -85,8 +85,8 @@ class AGLocationListViewController: AGViewController {
         return collectionView
     }()
     private let voiceOverlay = VoiceOverlayController()
-    private var allLocations : [Location] = [Location(name: "", street: "", photoName: ""),Location(name: "", street: "", photoName: ""),Location(name: "", street: "", photoName: ""),Location(name: "", street: "", photoName: ""),Location(name: "", street: "", photoName: ""),Location(name: "", street: "", photoName: ""),Location(name: "", street: "", photoName: ""),Location(name: "", street: "", photoName: ""),Location(name: "", street: "", photoName: ""),Location(name: "", street: "", photoName: ""),]
-    private var filteredLocations : [Location] = [Location(name: "", street: "", photoName: ""),Location(name: "", street: "", photoName: ""),Location(name: "", street: "", photoName: ""),Location(name: "", street: "", photoName: ""),Location(name: "", street: "", photoName: ""),Location(name: "", street: "", photoName: ""),Location(name: "", street: "", photoName: ""),Location(name: "", street: "", photoName: ""),Location(name: "", street: "", photoName: ""),Location(name: "", street: "", photoName: "")]
+    private var allLocations : [Location] = [Location(name: "", street: "", photoName: "", id: 0),Location(name: "", street: "", photoName: "", id: 0),Location(name: "", street: "", photoName: "", id: 0),Location(name: "", street: "", photoName: "", id: 0),Location(name: "", street: "", photoName: "", id: 0),Location(name: "", street: "", photoName: "", id: 0),Location(name: "", street: "", photoName: "", id: 0),Location(name: "", street: "", photoName: "", id: 0),Location(name: "", street: "", photoName: "", id: 0),Location(name: "", street: "", photoName: "", id: 0),]
+    private var filteredLocations : [Location] = [Location(name: "", street: "", photoName: "", id: 0),Location(name: "", street: "", photoName: "", id: 0),Location(name: "", street: "", photoName: "", id: 0),Location(name: "", street: "", photoName: "", id: 0),Location(name: "", street: "", photoName: "", id: 0),Location(name: "", street: "", photoName: "", id: 0),Location(name: "", street: "", photoName: "", id: 0),Location(name: "", street: "", photoName: "", id: 0),Location(name: "", street: "", photoName: "", id: 0),Location(name: "", street: "", photoName: "", id: 0)]
     private var pageToLoad : Int = 2
     private let viewNoLabel = UIView()
     override func viewDidLoad() {
@@ -187,6 +187,10 @@ class AGLocationListViewController: AGViewController {
         guard let idDevice = UserDefaults.standard.value(forKey: "id_device") as? String else{
             return
         }
+        if let customNavigationController = self.navigationController as? CustomNavigationController {
+            // Приховуємо кастомний навігаційний бар
+            customNavigationController.customNavigationBar.isHidden = false // або false для показу
+        }
         apiCall.getPoints(idDevice: idDevice,with: 1) {[weak self] result in
             guard let strongSelf = self else{
                 return
@@ -199,7 +203,8 @@ class AGLocationListViewController: AGViewController {
                     let name = point.pointLangData.first?.name ?? "Unknown"
                     let street = point.pointLangData.first?.address ?? "Unknown"
                     let photoName = point.img
-                    let location = Location(name: name, street: street, photoName: "https://seeklogo.com/images/L/lviv-logo-856C608840-seeklogo.com.png")
+                    let choosedID = point.id
+                    let location = Location(name: name, street: street, photoName: "https://devapi.test.vn.ua/storage/" + photoName, id: choosedID)
                     locations.append(location)
                 }
                 DispatchQueue.main.async {
@@ -226,7 +231,8 @@ class AGLocationListViewController: AGViewController {
                         let name = point.pointLangData.first?.name ?? "Unknown"
                         let street = point.pointLangData.first?.address ?? "Unknown"
                         let photoName = point.img
-                        let location = Location(name: name, street: street, photoName: "https://seeklogo.com/images/L/lviv-logo-856C608840-seeklogo.com.png")
+                        let locationID = point.id
+                        let location = Location(name: name, street: street, photoName: "https://devapi.test.vn.ua/storage/" + photoName, id: locationID)
                         locations.append(location)
                     }
                     DispatchQueue.main.async {
@@ -345,7 +351,10 @@ extension AGLocationListViewController: SkeletonCollectionViewDataSource {
 extension AGLocationListViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.showLocationDetails()
+        if collectionView == self.collectionView {
+            let choosedId = allLocations[indexPath.row].id
+            self.showLocationDetails(choosedId: choosedId)
+        }
     }
 }
 extension AGLocationListViewController: UICollectionViewDelegateFlowLayout {
@@ -408,7 +417,7 @@ extension AGLocationListViewController : UITextFieldDelegate{
     func filterLocations(with searchText: String?) {
         guard let idDevice = UserDefaults.standard.value(forKey: "id_device") as? String, let searchText = searchText?.lowercased(), !searchText.isEmpty else {
             // Якщо текстове поле порожнє, очистіть масив відфільтрованих локацій
-            filteredLocations = [Location(name: "", street: "", photoName: ""),Location(name: "", street: "", photoName: ""),Location(name: "", street: "", photoName: ""),Location(name: "", street: "", photoName: ""),Location(name: "", street: "", photoName: ""),Location(name: "", street: "", photoName: ""),Location(name: "", street: "", photoName: ""),Location(name: "", street: "", photoName: ""),Location(name: "", street: "", photoName: ""),Location(name: "", street: "", photoName: "")]
+            filteredLocations = [Location(name: "", street: "", photoName: "", id: 0),Location(name: "", street: "", photoName: "", id: 0),Location(name: "", street: "", photoName: "", id: 0),Location(name: "", street: "", photoName: "", id: 0),Location(name: "", street: "", photoName: "", id: 0),Location(name: "", street: "", photoName: "", id: 0),Location(name: "", street: "", photoName: "", id: 0),Location(name: "", street: "", photoName: "", id: 0),Location(name: "", street: "", photoName: "", id: 0),Location(name: "", street: "", photoName: "", id: 0)]
             collectionView.reloadData() // Оновіть колекційне представлення
             return
         }
@@ -424,7 +433,8 @@ extension AGLocationListViewController : UITextFieldDelegate{
                     let name = point.pointLangData.first?.name ?? "Unknown"
                     let street = point.pointLangData.first?.address ?? "Unknown"
                     let photoName = point.img
-                    let location = Location(name: name, street: street, photoName: "https://seeklogo.com/images/L/lviv-logo-856C608840-seeklogo.com.png")
+                    let locationID = point.id
+                    let location = Location(name: name, street: street, photoName: "https://devapi.test.vn.ua/storage/" + photoName, id: locationID)
                     locations.append(location)
                 }
                

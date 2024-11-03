@@ -24,7 +24,7 @@ class AGViewController: UIViewController {
     @IBInspectable var cancelsEditingByBackgroundTap: Bool = false
     private let reachability = SCNetworkReachabilityCreateWithName(nil, "www.apple.com")
     private var flags = SCNetworkReachabilityFlags()
-    private let keyboardPool = NoticeObserverPool()
+    private let keyboardPool = Notice.ObserverPool()
     private var keyboardOffset: CGFloat = 0
     private var tapRecognizer: UITapGestureRecognizer!
 //    private let viewBackgroundColor : UIColor = .black
@@ -63,17 +63,13 @@ class AGViewController: UIViewController {
         self.navigationController?.interactivePopGestureRecognizer?.delegate = self
     }
     
-    func showLocationDetails() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        if let viewController = storyboard.instantiateViewController(withIdentifier: "AGTourDetailsViewController") as? AGTourDetailsViewController {
-            self.navigationController?.pushViewController(viewController, animated: true)
-        }
+    func showLocationDetails(choosedId : Int) {
+        let viewController = AGMainDetailsViewController(with: choosedId, typeOfDetail: .location)
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
-    func showAudioDetails() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        if let viewController = storyboard.instantiateViewController(withIdentifier: "AudioDetailsViewController") as? AudioDetailsViewController {
-            self.navigationController?.pushViewController(viewController, animated: true)
-        }
+    func showTourDetails(choosedId: Int) {
+        let viewController = AGMainDetailsViewController(with: choosedId, typeOfDetail: .tour)
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
     
     private func setKeyboardOffset(keyboardInfo: UIKeyboardInfo) {

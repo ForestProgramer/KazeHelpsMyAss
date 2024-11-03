@@ -895,6 +895,70 @@ final class APIManager{
         }
         task.resume()
     }
+    
+    func fetchOneLocationData(idDevice: String, id: Int, completion: @escaping (Result<OneLocationDetailsResponse, Error>) -> Void) {
+        let urlString = "https://devapi.test.vn.ua/api/en/points/getOnePoint?id_device=\(idDevice)&id=\(id)"
+        
+        guard let url = URL(string: urlString) else {
+            completion(.failure(NSError(domain: "Invalid URL", code: 0, userInfo: nil)))
+            return
+        }
+        
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            
+            guard let data = data else {
+                completion(.failure(NSError(domain: "No data received", code: 1, userInfo: nil)))
+                return
+            }
+            if let stringJSON = String(data: data, encoding: .utf8){
+                print("OnelocationData : \(stringJSON)")
+            }
+            do {
+                let decoder = JSONDecoder()
+                let decodedResponse = try decoder.decode(OneLocationDetailsResponse.self, from: data)
+                completion(.success(decodedResponse))
+            } catch {
+                print("Cathced error in decode")
+                completion(.failure(error))
+            }
+        }.resume()
+    }
+    func fetchOneTourData(idDevice: String, id: Int, completion: @escaping (Result<OneTourDetailsResponse, Error>) -> Void) {
+        let urlString = "https://devapi.test.vn.ua/api/en/tours/getTourData?id_device=\(idDevice)&id=\(id)"
+        
+        guard let url = URL(string: urlString) else {
+            completion(.failure(NSError(domain: "Invalid URL", code: 0, userInfo: nil)))
+            return
+        }
+        
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            
+            guard let data = data else {
+                completion(.failure(NSError(domain: "No data received", code: 1, userInfo: nil)))
+                return
+            }
+            if let stringJSON = String(data: data, encoding: .utf8){
+                print("OneTourData : \(stringJSON)")
+            }
+            do {
+                let decoder = JSONDecoder()
+                let decodedResponse = try decoder.decode(OneTourDetailsResponse.self, from: data)
+                completion(.success(decodedResponse))
+            } catch {
+                print("Cathced error in decode")
+                completion(.failure(error))
+            }
+        }.resume()
+    }
+    
     func getTours(idDevice: String, orderBy: String = "rating", sort: String = "desc", perPage: Int = 10,with page: Int? = nil, completion: @escaping (Result<TourData, Error>) -> Void) {
         let urlString: String
         if let page = page {
@@ -936,7 +1000,6 @@ final class APIManager{
                 }
                 return
             }
-            
             do {
                 let decodedData = try JSONDecoder().decode(TourResponse.self, from: data)
                 completion(.success(decodedData.data))
@@ -994,9 +1057,7 @@ final class APIManager{
                 completion(.failure(error ?? NSError(domain: "", code: -1, userInfo: nil)))
                 return
             }
-//            if let jsonString = String(data: data, encoding: .utf8) {
-//                print("JSON Response: \(jsonString)")
-//            }
+
             do {
                 // Декодування отриманих даних
                 let searchResponse = try JSONDecoder().decode(SearchResponseModel<T>.self, from: data)
@@ -1008,4 +1069,62 @@ final class APIManager{
         }
         task.resume()
     }
+    
+
+    func addComment(idDevice: String,token: String, idPoint: Int, comment: String, rating: Int, completion: @escaping (Result<SuccessUpdatedPointListCommentsResponce, Error>) -> Void) {
+        // URL для точки API
+        guard let url = URL(string: "https://devapi.test.vn.ua/api/en/points/addComment") else {
+            completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid URL"])))
+            return
+        }
+        
+        // Створення запиту
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        
+        // Додавання заголовків
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        
+        // Створення тіла запиту
+        let parameters: [String: Any] = [
+            "id_device": idDevice,
+            "id_point": idPoint,
+            "comment": comment,
+            "rating": rating
+        ]
+        guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: []) else {
+            completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid parameters"])))
+            return
+        }
+        request.httpBody = httpBody
+        
+        // Виконання запиту
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            // Обробка відповіді сервера
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            
+            guard let data = data else {
+                completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "No data received"])))
+                return
+            }
+            
+            // Обробка даних від сервера
+            do {
+                let decoder = JSONDecoder()
+                let responseData = try decoder.decode(SuccessUpdatedPointListCommentsResponce.self, from: data)
+                // Викликамо completion з успішним результатом
+                completion(.success(responseData))
+            } catch {
+                print("Error in decoding responce updated comments ")
+                completion(.failure(error))
+            }
+        }
+        
+        task.resume()
+    }
+
 }

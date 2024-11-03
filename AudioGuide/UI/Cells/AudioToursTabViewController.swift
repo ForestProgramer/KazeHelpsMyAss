@@ -18,8 +18,8 @@ class AudioToursTabViewController: AGViewController {
     @IBOutlet weak var searchField: UITextField!
     @IBOutlet weak var audiToursCollectionView: UICollectionView!
     @IBOutlet weak var voiceSearchBtn: UIButton!
-    private var allGuides: [AudioTour] = [AudioTour(name: "", duration: "", distance: "", price: "", photoName: ""),AudioTour(name: "", duration: "", distance: "", price: "", photoName: ""),AudioTour(name: "", duration: "", distance: "", price: "", photoName: "")]
-    private var filteredGuides: [AudioTour] = [AudioTour(name: "", duration: "", distance: "", price: "", photoName: ""),AudioTour(name: "", duration: "", distance: "", price: "", photoName: ""),AudioTour(name: "", duration: "", distance: "", price: "", photoName: "")]
+    private var allGuides: [AudioTour] = [AudioTour(id: 0, name: "", duration: "", distance: "", price: "", photoName: ""),AudioTour(id: 0, name: "", duration: "", distance: "", price: "", photoName: ""),AudioTour(id: 0, name: "", duration: "", distance: "", price: "", photoName: "")]
+    private var filteredGuides: [AudioTour] = [AudioTour(id: 0, name: "", duration: "", distance: "", price: "", photoName: ""),AudioTour(id: 0, name: "", duration: "", distance: "", price: "", photoName: ""),AudioTour(id: 0, name: "", duration: "", distance: "", price: "", photoName: "")]
     private var isSearching: Bool {
         return !searchField.text!.isEmpty
     }
@@ -58,7 +58,7 @@ class AudioToursTabViewController: AGViewController {
                     let distance = tour.distance
                     let price = tour.rating
                     let img = tour.img
-                    let audioTour = AudioTour(name: name, duration: duration, distance: distance, price: "\(price)", photoName: "https://buffer.com/cdn-cgi/image/w=1000,fit=contain,q=90,f=auto/library/content/images/size/w1200/2023/09/instagram-image-size.jpg")
+                    let audioTour = AudioTour(id: tour.id, name: name, duration: duration, distance: distance, price: "\(price)", photoName: "https://devapi.test.vn.ua/storage/" + img)
                     allTours.append(audioTour)
                 }
                 
@@ -232,7 +232,8 @@ extension AudioToursTabViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
          if collectionView == self.audiToursCollectionView{
-            self.showAudioDetails()
+             let id = allGuides[indexPath.row].id
+             self.showTourDetails(choosedId: id)
          }
         
     }
@@ -299,7 +300,7 @@ extension AudioToursTabViewController : UITextFieldDelegate{
     func filterLocations(with searchText: String?) {
         guard let idDevice = UserDefaults.standard.value(forKey: "id_device") as? String, let searchText = searchText?.lowercased(), !searchText.isEmpty else {
             // Якщо текстове поле порожнє, очистіть масив відфільтрованих локацій
-            filteredGuides = [AudioTour(name: "", duration: "", distance: "", price: "", photoName: ""),AudioTour(name: "", duration: "", distance: "", price: "", photoName: ""),AudioTour(name: "", duration: "", distance: "", price: "", photoName: "")]
+            filteredGuides = [AudioTour(id: 0, name: "", duration: "", distance: "", price: "", photoName: ""),AudioTour(id: 0, name: "", duration: "", distance: "", price: "", photoName: ""),AudioTour(id: 0, name: "", duration: "", distance: "", price: "", photoName: "")]
             audiToursCollectionView.reloadData() // Оновіть колекційне представлення
             return
         }
@@ -317,7 +318,7 @@ extension AudioToursTabViewController : UITextFieldDelegate{
                     let distance = tour.distance
                     let price = tour.rating
                     let img = tour.img
-                    let audioTour = AudioTour(name: name, duration: duration, distance: distance, price: "\(price)", photoName: "https://buffer.com/cdn-cgi/image/w=1000,fit=contain,q=90,f=auto/library/content/images/size/w1200/2023/09/instagram-image-size.jpg")
+                    let audioTour = AudioTour(id: tour.id, name: name, duration: duration, distance: distance, price: "\(price)", photoName: "https://devapi.test.vn.ua/storage/" + img)
                     allTours.append(audioTour)
                 }
                

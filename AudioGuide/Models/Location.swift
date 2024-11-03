@@ -11,4 +11,5 @@ struct Location {
     var name: String
     var street: String
     var photoName: String
+    var id : Int
 }

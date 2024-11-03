@@ -8,6 +8,7 @@
 import Foundation
 
 struct AudioTour {
+    var id : Int
     var name: String
     var duration: String // Кількість в годинках і хвилинах (наприклад, "2 год 30 хв")
     var distance: String // Відстань проходження (наприклад, "5 км")

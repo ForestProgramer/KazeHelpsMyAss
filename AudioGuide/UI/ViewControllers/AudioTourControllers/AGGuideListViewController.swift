@@ -53,6 +53,6 @@ extension AGGuideListViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.showAudioDetails()
+        self.showTourDetails(choosedId: 0)
     }
 }

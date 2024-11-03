@@ -2,10 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>GIDClientID</key>
-	<string>960801909314-1bs3ksqiocr1noen18gq70076d3na17c.apps.googleusercontent.com</string>
-	<key>GIDServerClientID</key>
-	<string>960801909314-di1v9ikjsdf600tg4v8k80h9nlvj0n64.apps.googleusercontent.com</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -29,6 +25,10 @@
 	<string>ac74962c6cf8bf6371579d39d0702070</string>
 	<key>FacebookDisplayName</key>
 	<string>Audio-Guide-iOS</string>
+	<key>GIDClientID</key>
+	<string>960801909314-1bs3ksqiocr1noen18gq70076d3na17c.apps.googleusercontent.com</string>
+	<key>GIDServerClientID</key>
+	<string>960801909314-di1v9ikjsdf600tg4v8k80h9nlvj0n64.apps.googleusercontent.com</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>fbapi</string>
@@ -47,15 +47,13 @@
 					<string>Default Configuration</string>
 					<key>UISceneDelegateClassName</key>
 					<string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
-					<key>UISceneStoryboardFile</key>
-					<string>Main</string>
 				</dict>
 			</array>
 		</dict>
 	</dict>
-	<key>NSMicrophoneUsageDescription</key>
-	<string>Please allow access to your microphone, so you will have posibility for voice search.</string>
-	<key>NSSpeechRecognitionUsageDescription</key>
-	<string>Please allow access to your voice recognition, so we can describe your voice into text.</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>audio</string>
+	</array>
 </dict>
 </plist>

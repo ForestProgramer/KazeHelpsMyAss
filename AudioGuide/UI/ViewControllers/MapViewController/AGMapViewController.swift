@@ -81,7 +81,7 @@ class AGMapViewController: AGViewController {
         }
         
         self.popupView.tapAction = {
-            self.showLocationDetails()
+//            self.showLocationDetails()
         }
         
         ChangeMapState.observe {[weak self] state in
